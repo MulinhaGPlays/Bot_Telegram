@@ -8,7 +8,7 @@ bot = telebot.TeleBot(CHAVE_API)
 
 @bot.message_handler(commands=['DizerBatata'])
 def responder(mensagem):
-    bot.reply_to(mensagem, "batata")
+    bot.send_message(mensagem.chat.id, "batata")
     
 @bot.message_handler(commands=['DizerBatata'])
 def responder(mensagem):
@@ -24,7 +24,7 @@ def verificar(mensagem):
 
 @bot.message_handler(func=verificar)
 def responder(mensagem):
-    texto = """Escolha um Comando::
+    texto = """Escolha um Comando:
     /DizerBatata
     /DizerTomate"""
     bot.reply_to(mensagem, texto)
