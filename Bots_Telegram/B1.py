@@ -10,11 +10,10 @@ bot = telebot.TeleBot(CHAVE_API)
 def responder(mensagem):
     bot.send_message(mensagem.chat.id, "batata")
     
-@bot.message_handler(commands=['DizerBatata'])
+@bot.message_handler(commands=['DizerTomate'])
 def responder(mensagem):
     bot.reply_to(mensagem, "tomate")
         
-
 ############################################################################### Verificadores ###############################################################################
         
 def verificar(mensagem):
@@ -24,9 +23,12 @@ def verificar(mensagem):
 
 @bot.message_handler(func=verificar)
 def responder(mensagem):
-    texto = """Escolha um Comando:
+    if mensagem.text == "batata":
+        texto = "sim, batata"
+    else:
+        texto = """Escolha um Comando:
     /DizerBatata
-    /DizerTomate"""
+    /DizerTomate"""    
     bot.reply_to(mensagem, texto)
 
 ############################################################################### Analise de Texto ###############################################################################
