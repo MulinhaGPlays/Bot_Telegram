@@ -23,7 +23,7 @@ def verificar(mensagem):
 
 @bot.message_handler(func=verificar)
 def responder(mensagem):
-    if mensagem.text == "batata":
+    if mensagem.text == "batata?":
         texto = "sim, batata"
     else:
         texto = """Escolha um Comando:
