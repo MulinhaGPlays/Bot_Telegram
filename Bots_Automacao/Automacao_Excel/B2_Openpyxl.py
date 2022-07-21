@@ -1,4 +1,4 @@
-from openpyxl import workbook, load_workbook
+from openpyxl import workbook, load_workbook # Importando o Openpyxl e o Workbook do Openpyxl para manipulação de arquivos Excel
 
 Planilha = load_workbook("Planilhas/P1.xlsx")
 
