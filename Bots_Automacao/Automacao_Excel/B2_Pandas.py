@@ -22,5 +22,5 @@ for pasta in caminho.iterdir(): # Percorre todas as pastas do caminho
                             venda = pd.read_excel(arquivo) # Leitura do arquivo Excel
                             vendas = vendas.append(venda,ignore_index=True) # Adiciona a tabela ao DataFrame
 
-os.chdir(caminho/"../../../../") # Volta ao diretório anterior
+os.chdir(caminho/"../../../../../") # Volta ao diretório anterior
 vendas.to_excel("Planilhas/1_Dados_Vendas_AlterPandas.xlsx") # Salva o arquivo Excel
