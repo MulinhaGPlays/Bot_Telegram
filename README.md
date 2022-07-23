@@ -7,4 +7,12 @@
 ###### - PyAutogui
 ###### - Selenium
 ###### - WebDriver-Manager
+###### - Certifi
+###### - Colorama
+###### - PySocks
+###### - Requests
+###### - Requests-Futures
+###### - Stem
+###### - TorreQuest
+
  

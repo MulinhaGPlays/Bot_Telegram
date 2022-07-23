@@ -3,5 +3,8 @@
         "navegador",
         "servico",
         "tabela"
+    ],
+    "dataworkspace.excludedProjects": [
+        "Bots_Automacao/Automacao_SQL/SQL/SQL.sqlproj"
     ]
 }
