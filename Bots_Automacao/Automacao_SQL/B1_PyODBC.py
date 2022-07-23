@@ -19,7 +19,6 @@ cursor.execute("SELECT * FROM Vendas")
 
 
 
-
 MostrarTabela = cursor.fetchone()
 print(MostrarTabela)
 
