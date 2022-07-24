@@ -18,7 +18,7 @@ print("""Conexão com o banco de dados realizada com sucesso!
 class Table:
       def CreateTable(self, name):
             self.name = name
-            TypesC = ['INT', 'VARCHAR', 'DATETIME', 'DECIMAL', 'BIT', 'FLOAT', 'DOUBLE', 'SMALLINT', 'TINYINT', 'BIGINT', 'REAL', 'NUMERIC', 'MONEY',
+            TypesC = ['int', 'VARCHAR', 'DATETIME', 'DECIMAL', 'BIT', 'FLOAT', 'DOUBLE', 'SMALLINT', 'TINYINT', 'BIGINT', 'REAL', 'NUMERIC', 'MONEY',
                       'DATE', 'TIME', 'DATETIME2', 'DATETIMEOFFSET', 'NTEXT', 'TEXT', 'VARBINARY', 'IMAGE', 'UNIQUEIDENTIFIER', 'SQL_VARIANT', 'XML']
             print(f'\nCriando a tabela {name}...')
             print('Os tipos de dados disponíveis são:')
@@ -43,6 +43,7 @@ class Table:
             for i in range(len(fieldsName)):
                   fields += f"{fieldsName[i]} {fieldsType[i]}, "
             fields = fields[:-2]
+            self.fields = fields
             cursor.execute(f'CREATE TABLE {name} ({fields})')
             conexao.commit()
             print(f'Tabela {name} criada com sucesso!')
