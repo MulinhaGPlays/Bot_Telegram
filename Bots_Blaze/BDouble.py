@@ -64,17 +64,16 @@ with sync_playwright() as playwright:
                     send_image('Bots_Blaze/Image/White.png')
                 i = i-1
             r = 1
+            z = 0
         elif r == 1:
             Div2 = soup.find_all('div', id='roulette', class_='page complete')
             Div1 = soup.find_all('div', class_='sm-box')[0]
             if Div2 != []:
-                while Div2 == []:
-                    Div2 = soup.find_all('div', id='roulette', class_='page complete')
-                if Div2 != []:
+                z = 1
+            if Div2 == []:
+                if z == 1:
                     ResultNumberT = re.findall(r'\d+', Div1.text)
                     ResultColorT = Div1['class'][1]
-                    ResultHistoricT = f'{ResultNumberT[0]} {ResultColorT}'
-                    ResultHistoricT = ResultHistoricT
                     if ResultColorT == 'red':
                         for g in range(15):
                             if f'{g}' == f'{ResultNumberT[0]}':
@@ -85,7 +84,8 @@ with sync_playwright() as playwright:
                                 send_image(f'Bots_Blaze/Image/Black{g}.png')
                     if ResultColorT == 'white':
                         send_image('Bots_Blaze/Image/White.png')
-                    time.sleep(8)
+                        print(ResultHistoricT)
+                    z = 0
         
             # static
         # n = -1
