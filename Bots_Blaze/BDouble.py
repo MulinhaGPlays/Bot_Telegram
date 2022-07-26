@@ -74,6 +74,7 @@ with sync_playwright() as playwright:
                     ResultNumberT = re.findall(r'\d+', Div1.text)
                     ResultColorT = Div1['class'][1]
                     ResultHistoricT = f'{ResultNumberT[0]} {ResultColorT}'
+                    ResultHistoricT = ResultHistoricT
                     if ResultColorT == 'red':
                         for g in range(15):
                             if f'{g}' == f'{ResultNumberT[0]}':
@@ -84,7 +85,7 @@ with sync_playwright() as playwright:
                                 send_image(f'Bots_Blaze/Image/Black{g}.png')
                     if ResultColorT == 'white':
                         send_image('Bots_Blaze/Image/White.png')
-                    time.sleep(3)
+                    time.sleep(8)
         
             # static
         # n = -1
