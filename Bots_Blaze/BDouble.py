@@ -11,8 +11,10 @@ chat_id = '1970700049'
 
 bot = telebot.TeleBot(CHAVE_API)
 
+
 def send_message(text):
     bot.send_message(chat_id, text)
+
 
 def send_image(file_path):
     body = {'chat_id': chat_id, }
@@ -84,9 +86,8 @@ with sync_playwright() as playwright:
                                 send_image(f'Bots_Blaze/Image/Black{g}.png')
                     if ResultColorT == 'white':
                         send_image('Bots_Blaze/Image/White.png')
-                        print(ResultHistoricT)
                     z = 0
-        
+
             # static
         # n = -1
         # for Div in soup.find_all('div', class_='lg-box'):
