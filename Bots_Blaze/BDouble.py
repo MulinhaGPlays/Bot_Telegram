@@ -42,63 +42,70 @@ with sync_playwright() as playwright:
         soup = BeautifulSoup(DataSite, 'html.parser')
         n = -1
         if r == 0:
-            for Div in soup.find_all('div', class_='sm-box'):
+        #     for Div in soup.find_all('div', class_='sm-box'):
+        #         n += 1
+        #         ResultColor.append(Div['class'][1])
+        #         ResultNumber.append(re.findall(r'\d+', Div.text))
+        #         ResultNumber[n] = ResultNumber[n][0] if len(
+        #             ResultNumber[n]) > 0 else '0'
+        #         ResultHistoric.append(
+        #             f'{ResultNumber[n]} {ResultColor[n]}')
+        #     i = 0
+        #     for a in ResultHistoric:
+        #         i += 1
+        #     while i != 0:
+        #         if ResultColor[i-1] == 'red':
+        #             for g in range(15):
+        #                 if f'{g}' == f'{ResultNumber[i-1]}':
+        #                     send_image(f'Bots_Blaze/Image/Red{g}.png')
+        #         if ResultColor[i-1] == 'black':
+        #             for g in range(15):
+        #                 if f'{g}' == f'{ResultNumber[i-1]}':
+        #                     send_image(f'Bots_Blaze/Image/Black{g}.png')
+        #         if ResultColor[i-1] == 'white':
+        #             send_image('Bots_Blaze/Image/White.png')
+        #         i = i-1
+        #     r = 1
+        #     z = 0
+        # elif r == 1:
+        #     Div2 = soup.find_all('div', id='roulette', class_='page complete')
+        #     Div1 = soup.find_all('div', class_='sm-box')[0]
+        #     if Div2 != []:
+        #         z = 1
+        #     if Div2 == []:
+        #         if z == 1:
+        #             ResultNumberT = re.findall(r'\d+', Div1.text)
+        #             ResultColorT = Div1['class'][1]
+        #             if ResultColorT == 'red':
+        #                 for g in range(15):
+        #                     if f'{g}' == f'{ResultNumberT[0]}':
+        #                         send_image(f'Bots_Blaze/Image/Red{g}.png')
+        #             if ResultColorT == 'black':
+        #                 for g in range(15):
+        #                     if f'{g}' == f'{ResultNumberT[0]}':
+        #                         send_image(f'Bots_Blaze/Image/Black{g}.png')
+        #             if ResultColorT == 'white':
+        #                 send_image('Bots_Blaze/Image/White.png')
+        #             z = 0
+            n = -1
+            x = 0
+            y = 0
+            b = 0
+            for Div in soup.find_all('div', class_='lg-box'):
                 n += 1
-                ResultColor.append(Div['class'][1])
-                ResultNumber.append(re.findall(r'\d+', Div.text))
-                ResultNumber[n] = ResultNumber[n][0] if len(
-                    ResultNumber[n]) > 0 else '0'
-                ResultHistoric.append(
-                    f'{ResultNumber[n]} {ResultColor[n]}')
-            i = 0
-            for a in ResultHistoric:
-                i += 1
-            while i != 0:
-                if ResultColor[i-1] == 'red':
-                    for g in range(15):
-                        if f'{g}' == f'{ResultNumber[i-1]}':
-                            send_image(f'Bots_Blaze/Image/Red{g}.png')
-                if ResultColor[i-1] == 'black':
-                    for g in range(15):
-                        if f'{g}' == f'{ResultNumber[i-1]}':
-                            send_image(f'Bots_Blaze/Image/Black{g}.png')
-                if ResultColor[i-1] == 'white':
-                    send_image('Bots_Blaze/Image/White.png')
-                i = i-1
-            r = 1
-            z = 0
-        elif r == 1:
-            Div2 = soup.find_all('div', id='roulette', class_='page complete')
-            Div1 = soup.find_all('div', class_='sm-box')[0]
-            if Div2 != []:
-                z = 1
-            if Div2 == []:
-                if z == 1:
-                    ResultNumberT = re.findall(r'\d+', Div1.text)
-                    ResultColorT = Div1['class'][1]
-                    if ResultColorT == 'red':
-                        for g in range(15):
-                            if f'{g}' == f'{ResultNumberT[0]}':
-                                send_image(f'Bots_Blaze/Image/Red{g}.png')
-                    if ResultColorT == 'black':
-                        for g in range(15):
-                            if f'{g}' == f'{ResultNumberT[0]}':
-                                send_image(f'Bots_Blaze/Image/Black{g}.png')
-                    if ResultColorT == 'white':
-                        send_image('Bots_Blaze/Image/White.png')
-                    z = 0
-
-            # static
-        # n = -1
-        # for Div in soup.find_all('div', class_='lg-box'):
-        #     n += 1
-        #     RouletteColor.append(Div['class'][1])
-        #     RouletteNumber.append(re.findall(r'\d+', Div.text))
-        #     RouletteNumber[n] = RouletteNumber[n][0] if len(
-        #         RouletteNumber[n]) > 0 else '0'
-        #     RouletteQuant.append(f'{RouletteNumber[n]} {RouletteColor[n]}')
-        #     send_message(RouletteQuant[n])
-
+                RouletteColor.append(Div['class'][1])
+                RouletteNumber.append(re.findall(r'\d+', Div.text))
+                RouletteNumber[n] = RouletteNumber[n][0] if len(
+                    RouletteNumber[n]) > 0 else '0'
+                RouletteQuant.append(f'{RouletteNumber[n]} {RouletteColor[n]}')
+                if RouletteColor[n] == 'red':
+                    x = x +1
+                if RouletteColor[n] == 'black':
+                    y = y +1
+                if RouletteColor[n] == 'white':
+                    b = b +1
+            print(f'{x} Vermelhos {y} Pretos {b} Brancos')
 # outputs
 # RouletteQuant
 # ResultHistoric
+
