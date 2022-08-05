@@ -30,3 +30,5 @@
 ###### - Wikipedia
 ###### - PywhatKit
 ###### - ChatterBot
+###### - Jupyter
+###### - Spacy
