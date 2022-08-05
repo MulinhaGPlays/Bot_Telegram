@@ -19,3 +19,9 @@
 ###### - Regex
 ###### - PlayWright
 ###### - FLask
+###### - SpeechRecognition
+###### - PyAudio
+###### - PlaySound
+###### - gTTS
+###### - Pyttsx3
+###### - Python-vlc
