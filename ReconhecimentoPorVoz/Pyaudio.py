@@ -1,9 +1,11 @@
 import webbrowser
 import gtts
-from playsound import playsound
 import pyttsx3
+from playsound import playsound
 import speech_recognition as sr
-
+import datetime
+import wikipedia
+import pywhatkit as kit
 
 def speak(text):
     engine = pyttsx3.init()
@@ -33,6 +35,7 @@ def get_audio_google():
 
 def falar_com_jorginho():
     rec = sr.Recognizer()
+    engine = pyttsx.init()
 
     try:
         with sr.Microphone(1) as mic:
@@ -43,14 +46,29 @@ def falar_com_jorginho():
             comando = rec.recognize_google(audio, language='pt-BR')
             comando = comando.lower()
             if 'jorginho' in comando:
-                if 'navegador' in comando:
-                    print('Abrindo navegador')
-                    webbrowser.open('https://www.google.com')
-
+                comando = executa_comando()
+                if 'hora' or 'horas' in comando:
+                    hora = datetime.datetime.now().strftime('%H:%M')
+                    engine.say("Agora são" + hora)
+                    engine.runAndWait()
+                elif 'procure por' in comando:
+                    procurar = comando.replace('procure por', '')
+                    wikipedia.set_lang('pt')
+                    resultado = wikipedia.summary(procurar, sentences=2)
+                    engine.say(resultado)
+                    engine.runAndWait()
+                elif 'toque' in comando:
+                    musica = comando.replace('toque', '')
+                    resultado = kit.playonyt(musica)
+                    engine.say('Tocando musica')
+                    engine.runAndWait()
+                    
     except:
         print("Não consegui reconhecer")
 
-
 # get_audio_google()
-get_audio()
-# falar_com_jorginho()
+# get_audio()
+falar_com_jorginho()
+# speak('Olá, tudo bem?')
+
+

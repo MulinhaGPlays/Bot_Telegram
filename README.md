@@ -25,3 +25,8 @@
 ###### - gTTS
 ###### - Pyttsx3
 ###### - Python-vlc
+###### - Pocketsphinx
+###### - PipWin
+###### - Wikipedia
+###### - PywhatKit
+###### - ChatterBot
