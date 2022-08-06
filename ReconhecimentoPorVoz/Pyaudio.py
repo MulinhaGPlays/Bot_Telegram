@@ -45,7 +45,7 @@ def falar_com_jorginho():
             audio = rec.listen(mic)
             comando = rec.recognize_google(audio, language='pt-BR')
             comando = comando.lower()
-            if 'jorginho' in comando:
+            if 'jorginho' or 'jorges' or 'jorge' or 'filho' in comando:
                 comando = executa_comando()
                 if 'hora' or 'horas' in comando:
                     hora = datetime.datetime.now().strftime('%H:%M')
